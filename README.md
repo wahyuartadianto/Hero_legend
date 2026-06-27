@@ -3,7 +3,7 @@
 **Game aksi 2D platformer epik berbasis browser** dengan grafis retro-modern, pertarungan seru, dan sistem upgrade yang adiktif.
 
 ![Hero Legend](https://via.placeholder.com/800x400/1a2a0a/4aff44?text=HERO+LEGEND](https://i.ibb.co.com/XrjXY014/hero-adventure.png)  
-*(Ganti dengan screenshot atau GIF gameplay nanti)*
+
 
 ## ✨ Fitur Utama
 
