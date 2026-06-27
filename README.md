@@ -1,5 +1,6 @@
 # 🗡️ HERO LEGEND — Aksi & Petualangan Epic
 ![alt text](https://i.ibb.co.com/XrjXY014/hero-adventure.png?raw=true)
+
 Game hero 2D seru yang bisa dimainkan langsung di browser & handphone!
 
 ## 🎮 Cara Akses
