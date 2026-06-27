@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Hero Legend - Aksi & Petualangan Epic</title>
+    <meta name="description" content="Game hero 2D aksi petualangan epic dengan 5 level dan bos, sistem upgrade skill dan senjata tanpa akhir!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <!-- Menu Utama -->
+        <div id="main-menu" class="screen active">
+            <div class="menu-bg"></div>
+            <div class="particles" id="menu-particles"></div>
+            <div class="menu-content">
+                <div class="game-logo">
+                    <div class="logo-glow"></div>
+                    <h1 class="game-title">HERO<br><span>LEGEND</span></h1>
+                    <p class="game-subtitle">⚔️ Aksi & Petualangan Epic ⚔️</p>
+                </div>
+                <div class="hero-showcase">
+                    <canvas id="menu-hero-canvas" width="200" height="200"></canvas>
+                </div>
+                <div class="menu-buttons">
+                    <button id="btn-play" class="menu-btn primary">
+                        <span class="btn-icon">▶</span>
+                        <span>MULAI PETUALANGAN</span>
+                    </button>
+                    <button id="btn-continue" class="menu-btn secondary" style="display:none">
+                        <span class="btn-icon">↩</span>
+                        <span>LANJUTKAN</span>
+                    </button>
+                    <button id="btn-help" class="menu-btn tertiary">
+                        <span class="btn-icon">?</span>
+                        <span>CARA BERMAIN</span>
+                    </button>
+                </div>
+                <div class="menu-footer">
+                    <p>Level tak terbatas • Bos Epik • Upgrade Skill</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cara Bermain -->
+        <div id="help-screen" class="screen">
+            <div class="help-content">
+                <h2 class="help-title">⚔️ CARA BERMAIN ⚔️</h2>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <div class="help-icon">🎮</div>
+                        <h3>Kontrol</h3>
+                        <p>Gunakan tombol virtual di layar untuk bergerak, melompat, dan menyerang</p>
+                    </div>
+                    <div class="help-card">
+                        <div class="help-icon">⚔️</div>
+                        <h3>Serang</h3>
+                        <p>Tombol A untuk serangan biasa, tombol S untuk skill khusus</p>
+                    </div>
+                    <div class="help-card">
+                        <div class="help-icon">🏆</div>
+                        <h3>Bos</h3>
+                        <p>Setiap level memiliki bos yang kuat. Kalahkan untuk mendapat reward!</p>
+                    </div>
+                    <div class="help-card">
+                        <div class="help-icon">✨</div>
+                        <h3>Upgrade</h3>
+                        <p>Menang vs bos = dapat skill & senjata baru yang lebih kuat!</p>
+                    </div>
+                    <div class="help-card">
+                        <div class="help-icon">♾️</div>
+                        <h3>Tak Terbatas</h3>
+                        <p>Setelah level 5, kesulitan terus meningkat! Berapa lama kamu bertahan?</p>
+                    </div>
+                    <div class="help-card">
+                        <div class="help-icon">❤️</div>
+                        <h3>HP & Energi</h3>
+                        <p>Jaga HP tetap tinggi. Energi digunakan untuk skill khusus</p>
+                    </div>
+                </div>
+                <button id="btn-back-help" class="menu-btn secondary">← KEMBALI</button>
+            </div>
+        </div>
+
+        <!-- Level Select / Upgrade Screen -->
+        <div id="upgrade-screen" class="screen">
+            <div class="upgrade-content">
+                <h2 class="upgrade-title" id="upgrade-title">⭐ REWARD KEMENANGAN ⭐</h2>
+                <div class="reward-showcase">
+                    <div id="reward-weapon" class="reward-card">
+                        <div class="reward-icon" id="reward-weapon-icon">⚔️</div>
+                        <h3 id="reward-weapon-name">Pedang Api</h3>
+                        <p id="reward-weapon-desc">+50 ATK</p>
+                    </div>
+                    <div id="reward-skill" class="reward-card">
+                        <div class="reward-icon" id="reward-skill-icon">✨</div>
+                        <h3 id="reward-skill-name">Skill Baru</h3>
+                        <p id="reward-skill-desc">Deskripsi skill</p>
+                    </div>
+                </div>
+                <div class="hero-stats-panel">
+                    <h3>STATUS HERO</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item"><span>⚔️ ATK:</span><span id="stat-atk">100</span></div>
+                        <div class="stat-item"><span>🛡️ DEF:</span><span id="stat-def">50</span></div>
+                        <div class="stat-item"><span>💨 SPD:</span><span id="stat-spd">5</span></div>
+                        <div class="stat-item"><span>❤️ HP:</span><span id="stat-hp">200</span></div>
+                    </div>
+                </div>
+                <button id="btn-next-level" class="menu-btn primary pulse-btn">
+                    <span class="btn-icon">➡️</span>
+                    <span>LANJUT KE LEVEL BERIKUTNYA</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen">
+            <div class="gameover-content">
+                <div class="gameover-icon">💀</div>
+                <h2 class="gameover-title">GAME OVER</h2>
+                <p class="gameover-sub">Kamu telah jatuh dalam pertempuran!</p>
+                <div class="score-display">
+                    <div class="score-item">
+                        <span class="score-label">Level Dicapai</span>
+                        <span class="score-value" id="go-level">1</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Musuh Dikalahkan</span>
+                        <span class="score-value" id="go-enemies">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Skill Dimiliki</span>
+                        <span class="score-value" id="go-skills">0</span>
+                    </div>
+                </div>
+                <div class="gameover-buttons">
+                    <button id="btn-retry" class="menu-btn primary">🔄 COBA LAGI</button>
+                    <button id="btn-menu" class="menu-btn secondary">🏠 MENU</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Victory Screen (Final Level) -->
+        <div id="victory-screen" class="screen">
+            <div class="victory-content">
+                <div class="victory-stars">⭐⭐⭐</div>
+                <h2 class="victory-title">KAMU LEGENDA!</h2>
+                <p class="victory-sub">5 Level telah ditaklukkan! Kini kesulitan meningkat...</p>
+                <button id="btn-continue-endless" class="menu-btn primary pulse-btn">
+                    ♾️ LANJUT ENDLESS MODE
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <div id="game-screen" class="screen">
+            <!-- HUD -->
+            <div id="hud">
+                <div class="hud-left">
+                    <div class="hud-hp-section">
+                        <div class="hud-label">❤️ HP</div>
+                        <div class="hp-bar-container">
+                            <div id="hp-bar" class="hp-bar"></div>
+                            <span id="hp-text">200/200</span>
+                        </div>
+                    </div>
+                    <div class="hud-energy-section">
+                        <div class="hud-label">⚡ Energi</div>
+                        <div class="energy-bar-container">
+                            <div id="energy-bar" class="energy-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hud-center">
+                    <div id="level-badge">LEVEL <span id="level-num">1</span></div>
+                    <div id="wave-badge">GELOMBANG <span id="wave-num">1</span></div>
+                </div>
+                <div class="hud-right">
+                    <div id="score-hud">⭐ <span id="score-num">0</span></div>
+                    <div id="weapon-hud">⚔️ <span id="weapon-name">Pedang Kayu</span></div>
+                    <div id="skill-slots">
+                        <div class="skill-slot active" id="skill-slot-0" title="Skill 1">💥</div>
+                        <div class="skill-slot" id="skill-slot-1" title="Skill 2">🔒</div>
+                        <div class="skill-slot" id="skill-slot-2" title="Skill 3">🔒</div>
+                        <div class="skill-slot" id="skill-slot-3" title="Skill 4">🔒</div>
+                        <div class="skill-slot" id="skill-slot-4" title="Skill 5">🔒</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boss HP Bar -->
+            <div id="boss-hud" style="display:none">
+                <div class="boss-name" id="boss-name">BOSS</div>
+                <div class="boss-hp-container">
+                    <div id="boss-hp-bar" class="boss-hp-bar"></div>
+                    <span id="boss-hp-text">1000/1000</span>
+                </div>
+            </div>
+
+            <!-- Canvas -->
+            <canvas id="game-canvas"></canvas>
+
+            <!-- Virtual Controls -->
+            <div id="virtual-controls">
+                <div class="controls-left">
+                    <div class="dpad">
+                        <button class="dpad-btn" id="btn-left" data-action="left">◀</button>
+                        <button class="dpad-btn" id="btn-right" data-action="right">▶</button>
+                    </div>
+                    <button class="jump-btn" id="btn-jump" data-action="jump">↑</button>
+                </div>
+                <div class="controls-right">
+                    <button class="action-btn attack-btn" id="btn-attack" data-action="attack">A</button>
+                    <button class="action-btn skill-btn" id="btn-skill" data-action="skill">S</button>
+                    <button class="action-btn dash-btn" id="btn-dash" data-action="dash">D</button>
+                </div>
+            </div>
+
+            <!-- Pause Button -->
+            <button id="btn-pause" class="pause-btn">⏸</button>
+
+            <!-- Pause Menu -->
+            <div id="pause-menu" style="display:none">
+                <div class="pause-content">
+                    <h3>⏸ JEDA</h3>
+                    <button id="btn-resume" class="menu-btn primary">▶ LANJUTKAN</button>
+                    <button id="btn-quit" class="menu-btn secondary">🏠 KELUAR</button>
+                </div>
+            </div>
+
+            <!-- Wave announcement -->
+            <div id="wave-announcement" class="wave-announce" style="display:none">
+                <div id="wave-text"></div>
+            </div>
+
+            <!-- Damage numbers container -->
+            <div id="damage-numbers"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

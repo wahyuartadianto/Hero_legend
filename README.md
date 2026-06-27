@@ -1,56 +1,68 @@
-# 🗡️ Hero Legend
+# 🗡️ HERO LEGEND — Aksi & Petualangan Epic
 
-**Game aksi 2D platformer epik berbasis browser** dengan grafis retro-modern, pertarungan seru, dan sistem upgrade yang adiktif.
+Game hero 2D seru yang bisa dimainkan di browser/handphone!
 
-![Hero Legend](https://via.placeholder.com/800x400/1a2a0a/4aff44?text=HERO+LEGEND](https://i.ibb.co.com/XrjXY014/hero-adventure.png)  
-
-
-## ✨ Fitur Utama
-
-- **5 Level dengan tema unik** (Hutan Gelap, Gunung Api, Gua Kristal, Kuil Kuno, Dimensi Iblis)
-- **5 Bos Epik** dengan fase pertarungan dan reward besar
-- **Sistem Combo & Skill** yang semakin kuat seiring progres
-- **Upgrade Senjata & Skill** permanen setelah mengalahkan boss
-- **Endless Mode** setelah menyelesaikan 5 level (kesulitan terus meningkat)
-- **Animasi Smooth** dengan squash & stretch, particle effects, dan trail
-- **Audio Engine** lengkap dengan efek suara retro
-- **Fully Responsive** + kontrol virtual untuk mobile
-- **Save Progress** antar level
-
-## 🎮 Cara Bermain
-
-### Kontrol Keyboard:
-- **A / D** atau **← →** : Bergerak
-- **Spasi / W / ↑** : Lompat (Double Jump)
-- **J** : Serang (Combo)
-- **X / Shift** : Dash
-- **Z** : Gunakan Skill
-
-### Kontrol Mobile:
-Tombol virtual di layar (D-Pad, Jump, Attack, Skill, Dash)
-
-## 🛠️ Teknologi
-
-- **HTML5 Canvas**
-- **Vanilla JavaScript** (ES6+)
-- **Web Audio API**
-- **Particle System** custom
-- **Responsive Design**
-
-## 🎯 Tujuan Game
-
-Taklukkan 5 boss legendaris dan buktikan kamu adalah **Hero Legend**!  
-Setelah itu, uji batas kemampuanmu di **Endless Mode**.
+## 🎮 Cara Akses
+Buka di browser: `http://localhost/hero-adventure/`
 
 ---
 
-## 📥 Cara Menjalankan
+## ⚔️ Fitur Utama
 
-1. Clone repo ini
-2. Buka file `index.html` di browser
-3. Langsung main! (Tidak perlu install apa pun)
+### 5 Level + Endless Mode
+| Level | Tema | Bos |
+|-------|------|-----|
+| 1 | Hutan Gelap | 👺 Raja Goblin |
+| 2 | Gunung Api | 🔥 Titan Api |
+| 3 | Gua Kristal | 💎 Raja Kristal |
+| 4 | Kuil Kuno | ⚡ Dewa Perang |
+| 5 | Dimensi Iblis | 👿 Iblis Agung |
+| 6+ | **ENDLESS** ♾️ | Semua bos berulang, semakin kuat! |
 
-```bash
-git clone https://github.com/username/hero-legend.git
-cd hero-legend
-# Buka index.html
+### 🏆 Sistem Reward
+Setiap bos dikalahkan → **Senjata baru + Skill baru**!
+- Level 1 → ⚔️ Pedang Besi + 🔥 Tembakan Api
+- Level 2 → 🗡️ Tombak Api + 🌋 Badai Api
+- Level 3 → 🔮 Pedang Kristal + ❄️ Penjara Es
+- Level 4 → ⚡ Petir Suci + 🌩️ Hujan Petir
+- Level 5 → 🌑 Pedang Kehampaan + 🌑 Nova Kegelapan
+
+### ♾️ Endless Difficulty
+Setelah level 5 selesai, kesulitan **meningkat 1.4x** setiap putaran!
+
+---
+
+## 📱 Kontrol
+
+### Handphone (Touch)
+- **◀ ▶** — Gerak kiri/kanan
+- **↑** — Lompat (2x lompat tersedia!)
+- **A** — Serang normal (combo system)
+- **S** — Skill khusus
+- **D** — Dash (hindari serangan!)
+
+### PC (Keyboard)
+- **Arrow Keys / WASD** — Bergerak & lompat
+- **Space / J** — Serang
+- **Z** — Skill
+- **X / Shift** — Dash
+- **Esc** — Pause
+
+---
+
+## 🎯 Tips Bermain
+1. **Gunakan dash** untuk menghindari serangan bos
+2. **Kumpulkan ❤️ dan ⚡** yang dijatuhkan musuh
+3. **Combo serangan** memberikan bonus damage!
+4. **Skill khusus** sangat efektif melawan bos
+5. **Bos fase 2+** menjadi lebih cepat dan menyerang lebih sering
+6. Di **Endless Mode**, senjata dan skill kamu sudah max — gunakan semuanya!
+
+---
+
+## 🛠️ Teknologi
+- HTML5 Canvas API (rendering)
+- Web Audio API (suara prosedural)
+- Vanilla JavaScript (tanpa library)
+- CSS3 Animations (UI)
+- Mobile-first responsive design
