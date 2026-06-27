@@ -3,7 +3,7 @@
 Game hero 2D seru yang bisa dimainkan di browser/handphone!
 
 ## 🎮 Cara Akses
-Buka di browser: `http://localhost/hero-adventure/`
+Demo Buka di browser: `(https://wahyuartadianto.github.io/Hero_legend/)`
 
 ---
 
